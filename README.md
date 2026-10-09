@@ -73,8 +73,8 @@ Requisitos:
 2. [**Git**](https://git-scm.com/downloads) para descargar el proyecto (o usa **Code → Download ZIP** en GitHub).
 
 ```bash
-git clone https://github.com/SrSergio-S/red_social.git
-cd red_social
+git clone https://github.com/SrSergio-S/red_social_docker.git
+cd red_social_docker
 docker compose up --build -d
 ```
 
@@ -123,14 +123,14 @@ con Docker:
 docker run -d --name apuntesu -p 5000:5000 \
   -e SECRET_KEY=una-frase-larga-y-secreta \
   -v apuntesu_datos:/app/instance \
-  ghcr.io/srsergio-s/red_social:latest
+  ghcr.io/srsergio-s/red_social_docker:latest
 ```
 
-Para actualizarla: `docker pull ghcr.io/srsergio-s/red_social:latest`, luego `docker rm -f apuntesu` y el
+Para actualizarla: `docker pull ghcr.io/srsergio-s/red_social_docker:latest`, luego `docker rm -f apuntesu` y el
 mismo `docker run` (los datos siguen en el volumen `apuntesu_datos`).
 
 > La primera vez que se publica, GitHub crea el paquete como **privado**. Para que cualquiera pueda
-> descargarlo: en GitHub entra a tu perfil → **Packages** → `red_social` → **Package settings** →
+> descargarlo: en GitHub entra a tu perfil → **Packages** → `red_social_docker` → **Package settings** →
 > **Change visibility** → **Public**. El progreso de cada publicación se ve en la pestaña **Actions**.
 
 ### Publicarla en Docker Hub
@@ -308,7 +308,7 @@ Relaciones principales:
 ## Estructura del proyecto
 
 ```
-red_social/
+red_social_docker/
 ├── run.py                   # Punto de entrada (lo usa Gunicorn dentro del contenedor)
 ├── requirements.txt         # Dependencias (se instalan dentro de la imagen Docker)
 ├── Dockerfile               # Imagen Docker de la app (Gunicorn)
